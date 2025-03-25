@@ -13,6 +13,7 @@ asyncpg = "^0.30.0"
 fastapi = "^0.115.12"
 pyjwt = "^2.10.1"
 sqlalchemy = "^2.0.39"
+uvicorn = "^0.34.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -23,6 +24,13 @@ mypy = "^1.15.0"
 pre-commit = "^4.2.0"
 pylint = "^3.3.6"
 
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = [
+    "C0114", #Missing module docstring (missing-module-docstring)
+    "C0116", #Missing function or method docstring (missing-function-docstring)
+    "W0621", #Redefining name from outer scope (redefined-outer-name)
+]
 
 [build-system]
 requires = ["poetry-core"]

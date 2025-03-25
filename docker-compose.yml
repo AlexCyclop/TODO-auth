@@ -22,3 +22,17 @@ services:
     container_name: auth-redis
     ports:
       - "6379:6379"
+
+  auth-app:
+    container_name: auth-app
+    build: .
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    depends_on:
+      auth-db:
+        condition: service_healthy
+    volumes:
+      - ./:/auth/app
+    restart: always

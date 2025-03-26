@@ -11,6 +11,8 @@ python = "^3.12"
 alembic = "^1.15.1"
 asyncpg = "^0.30.0"
 fastapi = "^0.115.12"
+pydantic = {extras = ["email"], version = "^2.10.6"}
+pydantic-settings = "^2.8.1"
 pyjwt = "^2.10.1"
 sqlalchemy = "^2.0.39"
 uvicorn = "^0.34.0"
@@ -28,8 +30,14 @@ pylint = "^3.3.6"
 [tool.pylint.'MESSAGES CONTROL']
 disable = [
     "C0114", #Missing module docstring (missing-module-docstring)
+    "C0115", #Missing class docstring (missing-class-docstring)
     "C0116", #Missing function or method docstring (missing-function-docstring)
+    "R0902", #Too many instance attributes (too-many-instance-attributes)
+    "R0903", #Too few public methods (too-few-public-methods)
+    "R0913", #Too many arguments (too-many-arguments)
+    "R0917", #Too many positional arguments (too-many-positional-arguments)
     "W0621", #Redefining name from outer scope (redefined-outer-name)
+    "W0707", #Consider explicitly re-raising (raise-missing-from)
 ]
 
 [build-system]
